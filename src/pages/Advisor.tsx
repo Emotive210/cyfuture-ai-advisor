@@ -26,7 +26,7 @@ const Advisor = () => {
     };
 
     return (
-        <main className="min-h-screen bg-[#060816] pt-28 pb-0 text-white">
+        <main className="min-h-screen bg-[#060816] pt-25 pb-0 text-white">
             <div className="mx-auto w-full max-w-2xl rounded-3xl border border-white/10 bg-white/5 p-7 backdrop-blur-xl">
 
                 <p className="mb-3 text-sm font-medium text-[#7554F7]">
