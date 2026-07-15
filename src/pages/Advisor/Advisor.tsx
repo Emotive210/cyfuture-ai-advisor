@@ -1,10 +1,12 @@
 import { useState } from "react";
-import OptionCard from "../components/OptionCard/optioncard";
-import { advisorSteps } from "../data/advisorData";
+import OptionCard from "../../components/OptionCard/OptionCard";
+import { advisorSteps } from "../../data/advisorData";
 import { ArrowLeft, ArrowRight, Sparkles } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 
 const Advisor = () => {
+    const navigate = useNavigate();
     const [currentStepIndex, setCurrentStepIndex] = useState(0);
     const [selectedOption, setSelectedOption] = useState("");
 
@@ -87,7 +89,13 @@ const Advisor = () => {
 
                     {currentStepIndex === advisorSteps.length - 1 ? (
                         <button
-                            className="flex items-center gap-2 rounded-xl bg-[#7554F7] px-6 py-2.5 font-medium transition-all duration-300 hover:bg-[#6746ea]"
+                            onClick={() =>
+                                navigate("/advisor/loading", {
+                                    state: { fromAdvisor: true },
+                                })
+                            }
+                            disabled={!selectedOption}
+                            className="flex items-center gap-2 rounded-xl bg-[#7554F7] px-6 py-2.5 font-medium transition-all duration-300 hover:bg-[#6746ea] disabled:cursor-not-allowed disabled:opacity-50"
                         >
                             <Sparkles size={18} />
                             Get Recommendation
